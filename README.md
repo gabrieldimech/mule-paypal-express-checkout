@@ -20,7 +20,7 @@ Since the above request will fail and timeout (add live URLs here so that you ca
 
 step 4 - Manually invoke the paypal-reply flow by simply replacing google.com with localhost from the above failed redirect, i.e:
 
-http://localhost/paypal-reply?token=EC-5UV35559HL2178137&PayerID=8LU98BNRVPXNS
+http://localhost:8081/paypal-reply?token=EC-5UV35559HL2178137&PayerID=8LU98BNRVPXNS
 
 This step invokes an optional get-express-checkout details (may be used for audit purposes) and do-express-checkout which completes the transaction.
 
