@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?><Graph __version="3.5.0" author="gabrieldimech" created="Thu Jul 23 17:26:51 BST 2015" description="Map To Xml&lt;GetExpressCheckoutDetailsReq&gt;" guiVersion="3.4.4.P" id="1437730070716" licenseCode="Unlicensed" licenseType="Unknown" modified="Thu Jul 23 17:26:51 BST 2015" modifiedBy="gabrieldimech" name="Map_To_Xml_GetExpressCheckoutDetailsReq_" revision="1.0" showComponentDetails="false">
+<Global>
+<Metadata __index="0" __referenceCounter="1" __sourcePath="{urn:ebay:api:PayPalAPI=ns0}/ns0:GetExpressCheckoutDetailsReq" _dataStructure="OBJECT" _id="__id" _type="Output" id="f44399ef-a6fe-4961-8f65-c2f430ae6e9c">
+<Record fieldDelimiter="," name="GetExpressCheckoutDetailsReq" recordDelimiter="\n\\|\r\n\\|\r" type="delimited">
+<Field __artificialType="_id" __systemManaged="true" name="__id" type="string"/>
+<Field __index="0" __sourcePath="{urn:ebay:apis:eBLBaseComponents=ns1,urn:ebay:api:PayPalAPI=ns0}/ns0:GetExpressCheckoutDetailsReq/ns0:GetExpressCheckoutDetailsRequest/ns1:DetailLevel" containerType="list" label="ns1:DetailLevel" name="ns1_DetailLevel" type="string"/>
+<Field __implementationClass="java.lang.String" __index="1" __sourcePath="{urn:ebay:apis:eBLBaseComponents=ns1,urn:ebay:api:PayPalAPI=ns0}/ns0:GetExpressCheckoutDetailsReq/ns0:GetExpressCheckoutDetailsRequest/ns1:ErrorLanguage" containerType="SINGLE" label="ns1:ErrorLanguage" name="ns1_ErrorLanguage" type="string"/>
+<Field __implementationClass="java.lang.String" __index="2" __sourcePath="{urn:ebay:apis:eBLBaseComponents=ns1,urn:ebay:api:PayPalAPI=ns0}/ns0:GetExpressCheckoutDetailsReq/ns0:GetExpressCheckoutDetailsRequest/ns1:Version" containerType="SINGLE" label="ns1:Version" name="ns1_Version" type="string"/>
+<Field __implementationClass="java.lang.String" __index="3" __sourcePath="{urn:ebay:api:PayPalAPI=ns0}/ns0:GetExpressCheckoutDetailsReq/ns0:GetExpressCheckoutDetailsRequest/ns0:Token" containerType="SINGLE" label="ns0:Token" name="ns0_Token" type="string"/>
+</Record>
+</Metadata>
+<Metadata __index="0" __referenceCounter="1" __sourcePath="{}/map" _dataStructure="OBJECT" _id="__id" _type="Input" id="ee6ea9eb-907e-4c42-b0ca-b94b18961261">
+<Record fieldDelimiter="," name="map" recordDelimiter="\n\\|\r\n\\|\r" type="delimited">
+<Field __artificialType="_id" __systemManaged="true" name="__id" type="string"/>
+<Field __index="1" __sourcePath="{}/map/PayerID" containerType="SINGLE" label="PayerID" name="PayerID" type="string"/>
+<Field __index="0" __sourcePath="{}/map/token" containerType="SINGLE" label="token" name="token" type="string"/>
+</Record>
+</Metadata>
+<Dictionary>
+<Entry id="DictionaryEntry0" input="true" name="inputPayload" output="false" type="object"/>
+<Entry id="DictionaryEntry1" input="false" name="outputPayload" output="true" type="object"/>
+</Dictionary>
+</Global>
+<Phase number="0">
+<Node enabled="enabled" fileURL="dict:inputPayload" guiName="Map&lt;k,v&gt; READER" guiX="20" guiY="20" id="BEAN_READER0" type="BEAN_READER">
+<attr name="mapping"><![CDATA[<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Context outPort="0" sequenceField="__id" xpath=".">
+  <Mapping cloverField="PayerID" trim="true" xpath="PayerID"/>
+  <Mapping cloverField="token" trim="true" xpath="token"/>
+</Context>
+]]></attr>
+<attr name="_data_format"><![CDATA[MAP]]></attr>
+</Node>
+<Node enabled="enabled" fileURL="dict:outputPayload" guiName="XML WRITER" guiX="900" guiY="20" id="EXT_XML_WRITER0" type="EXT_XML_WRITER">
+<attr name="mapping"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<clover:element clover:name="ns0:GetExpressCheckoutDetailsReq" xmlns:clover="http://www.cloveretl.com/ns/xmlmapping" xmlns:ns0="urn:ebay:api:PayPalAPI" clover:inPort="0">
+  <clover:element clover:name="ns0:GetExpressCheckoutDetailsRequest">
+    <clover:element clover:name="ns1:DetailLevel" xmlns:ns1="urn:ebay:apis:eBLBaseComponents">$0.ns1_DetailLevel</clover:element>
+    <clover:element clover:name="ns1:ErrorLanguage" xmlns:ns1="urn:ebay:apis:eBLBaseComponents">$0.ns1_ErrorLanguage</clover:element>
+    <clover:element clover:name="ns1:Version" xmlns:ns1="urn:ebay:apis:eBLBaseComponents">$0.ns1_Version</clover:element>
+    <clover:element clover:name="ns0:Token">$0.ns0_Token</clover:element>
+  </clover:element>
+</clover:element>]]></attr>
+<attr name="_data_format"><![CDATA[XML]]></attr>
+<attr name="__metadata"><![CDATA[true]]></attr>
+</Node>
+<Node enabled="enabled" guiName="Foreach 'map' -&gt; 'ns0:GetExpressCheckoutDetailsReq'" guiX="460" guiY="20" id="FOREACH_MAP_NS0_GET_EXPRESS_CHECKOUT_DETAILS_REQ" transformClass="com.mulesoft.datamapper.transform.MelRecordTransform" type="REFORMAT">
+<attr name="melScript"><![CDATA[//MEL
+//START -> DO NOT REMOVE
+output.__id = input.__id;
+//END -> DO NOT REMOVE
+output.ns0_Token = input.token;
+output.ns1_Version = "104.0";]]></attr>
+</Node>
+<Edge debugMode="true" fromNode="BEAN_READER0:0" guiBendpoints="" id="Edge0" inPort="Port 0 (in)" metadata="ee6ea9eb-907e-4c42-b0ca-b94b18961261" outPort="Port 0 (out)" toNode="FOREACH_MAP_NS0_GET_EXPRESS_CHECKOUT_DETAILS_REQ:0"/>
+<Edge debugMode="true" fromNode="FOREACH_MAP_NS0_GET_EXPRESS_CHECKOUT_DETAILS_REQ:0" guiBendpoints="" id="Edge1" inPort="Port 0 (in)" metadata="f44399ef-a6fe-4961-8f65-c2f430ae6e9c" outPort="Port 0 (out)" toNode="EXT_XML_WRITER0:0"/>
+</Phase>
+</Graph>

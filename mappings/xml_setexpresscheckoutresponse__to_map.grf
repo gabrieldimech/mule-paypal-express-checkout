@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?><Graph __version="3.5.0" author="gabrieldimech" created="Thu Jul 23 11:59:03 BST 2015" description="Xml&lt;SetExpressCheckoutResponse&gt; To Map" guiVersion="3.4.4.P" id="1437655797903" licenseCode="Unlicensed" licenseType="Unknown" modified="Thu Jul 23 11:59:03 BST 2015" modifiedBy="gabrieldimech" name="Xml_SetExpressCheckoutResponse__To_Map" revision="1.0" showComponentDetails="false">
+<Global>
+<Metadata __index="7" __referenceCounter="1" __schemaType="{urn:ebay:apis:eBLBaseComponents}ErrorParameterType" __sourcePath="{urn:ebay:apis:eBLBaseComponents=ns1,urn:ebay:api:PayPalAPI=ns0}/ns0:SetExpressCheckoutResponse/ns1:Errors/ns1:ErrorParameters" _dataStructure="SINGLE_DIMENSIONAL_COLLECTION" _id="__id" _metadataParentId="7e510edb-b348-445e-8429-24c4c9a82156" _parent_id="__parent_id" _type="Input" id="c3ca7de2-3ad0-41c2-aaf5-835c8902d8ba">
+<Record fieldDelimiter="," name="ErrorParameters" recordDelimiter="\n\\|\r\n\\|\r" type="delimited">
+<Field __artificialType="_parent_id" __systemManaged="true" name="__parent_id" type="string"/>
+<Field __artificialType="_id" __systemManaged="true" name="__id" type="string"/>
+<Field __implementationClass="java.lang.String" __index="7" __sourcePath="{urn:ebay:apis:eBLBaseComponents=ns1,urn:ebay:api:PayPalAPI=ns0}/ns0:SetExpressCheckoutResponse/ns1:Errors/ns1:ErrorParameters/ns1:Value" containerType="SINGLE" label="ns0:Value" name="ns0_Value" type="string"/>
+<Field __implementationClass="java.lang.String" __index="8" __sourcePath="{urn:ebay:apis:eBLBaseComponents=ns1,urn:ebay:api:PayPalAPI=ns0}/ns0:SetExpressCheckoutResponse/ns1:Errors/ns1:ErrorParameters/@ParamID" containerType="SINGLE" label="@ParamID" name="ParamID" type="string"/>
+</Record>
+</Metadata>
+<Metadata __index="10" __referenceCounter="1" __sourcePath="{}/SetExpressCheckoutResponse/Errors/ErrorParameters" _dataStructure="SINGLE_DIMENSIONAL_COLLECTION" _id="__id" _metadataParentId="d36bb198-01e4-4879-8d4d-d013a7da49ef" _parent_id="__parent_id" _type="Output" id="fbbe4c28-1995-4991-af3b-1b0ff763effe">
+<Record fieldDelimiter="," name="ErrorParameters" recordDelimiter="\n\\|\r\n\\|\r" type="delimited">
+<Field __artificialType="_id" __systemManaged="true" name="__id" type="string"/>
+<Field __artificialType="_parent_id" __systemManaged="true" name="__parent_id" type="string"/>
+<Field __index="11" __sourcePath="{}/SetExpressCheckoutResponse/Errors/ErrorParameters/ParamID" containerType="SINGLE" label="ParamID" name="ParamID" type="string"/>
+<Field __index="10" __sourcePath="{}/SetExpressCheckoutResponse/Errors/ErrorParameters/Value" containerType="SINGLE" label="Value" name="Value" type="string"/>
+</Record>
+</Metadata>
+<Metadata __index="3" __referenceCounter="2" __schemaType="{urn:ebay:apis:eBLBaseComponents}ErrorType" __sourcePath="{urn:ebay:apis:eBLBaseComponents=ns1,urn:ebay:api:PayPalAPI=ns0}/ns0:SetExpressCheckoutResponse/ns1:Errors" _dataStructure="SINGLE_DIMENSIONAL_COLLECTION" _id="__id" _metadataParentId="ea619e78-4805-4b8e-8ade-4712a868a08f" _parent_id="__parent_id" _type="Input" id="7e510edb-b348-445e-8429-24c4c9a82156">
+<Record fieldDelimiter="," name="Errors" recordDelimiter="\n\\|\r\n\\|\r" type="delimited">
+<Field __artificialType="_parent_id" __systemManaged="true" name="__parent_id" type="string"/>
+<Field __artificialType="_id" __systemManaged="true" name="__id" type="string"/>
+<Field __implementationClass="java.lang.String" __index="3" __sourcePath="{urn:ebay:apis:eBLBaseComponents=ns1,urn:ebay:api:PayPalAPI=ns0}/ns0:SetExpressCheckoutResponse/ns1:Errors/ns1:ShortMessage" containerType="SINGLE" label="ns0:ShortMessage" name="ns0_ShortMessage" type="string"/>
+<Field __implementationClass="java.lang.String" __index="4" __sourcePath="{urn:ebay:apis:eBLBaseComponents=ns1,urn:ebay:api:PayPalAPI=ns0}/ns0:SetExpressCheckoutResponse/ns1:Errors/ns1:LongMessage" containerType="SINGLE" label="ns0:LongMessage" name="ns0_LongMessage" type="string"/>
+<Field __implementationClass="java.lang.String" __index="5" __sourcePath="{urn:ebay:apis:eBLBaseComponents=ns1,urn:ebay:api:PayPalAPI=ns0}/ns0:SetExpressCheckoutResponse/ns1:Errors/ns1:ErrorCode" containerType="SINGLE" label="ns0:ErrorCode" name="ns0_ErrorCode" type="string"/>
+<Field __implementationClass="java.lang.String" __index="6" __sourcePath="{urn:ebay:apis:eBLBaseComponents=ns1,urn:ebay:api:PayPalAPI=ns0}/ns0:SetExpressCheckoutResponse/ns1:Errors/ns1:SeverityCode" containerType="SINGLE" label="ns0:SeverityCode" name="ns0_SeverityCode" type="string"/>
+</Record>
+</Metadata>
+<Metadata __index="6" __referenceCounter="2" __sourcePath="{}/SetExpressCheckoutResponse/Errors" _dataStructure="SINGLE_DIMENSIONAL_COLLECTION" _id="__id" _metadataParentId="6e580d33-36ab-4f96-8785-c8ebb10e5275" _parent_id="__parent_id" _type="Output" id="d36bb198-01e4-4879-8d4d-d013a7da49ef">
+<Record fieldDelimiter="," name="Errors" recordDelimiter="\n\\|\r\n\\|\r" type="delimited">
+<Field __artificialType="_id" __systemManaged="true" name="__id" type="string"/>
+<Field __artificialType="_parent_id" __systemManaged="true" name="__parent_id" type="string"/>
+<Field __index="8" __sourcePath="{}/SetExpressCheckoutResponse/Errors/ErrorCode" containerType="SINGLE" label="ErrorCode" name="ErrorCode" type="string"/>
+<Field __index="7" __sourcePath="{}/SetExpressCheckoutResponse/Errors/LongMessage" containerType="SINGLE" label="LongMessage" name="LongMessage" type="string"/>
+<Field __index="9" __sourcePath="{}/SetExpressCheckoutResponse/Errors/SeverityCode" containerType="SINGLE" label="SeverityCode" name="SeverityCode" type="string"/>
+<Field __index="6" __sourcePath="{}/SetExpressCheckoutResponse/Errors/ShortMessage" containerType="SINGLE" label="ShortMessage" name="ShortMessage" type="string"/>
+</Record>
+</Metadata>
+<Metadata __index="0" __referenceCounter="1" __schemaType="{urn:ebay:api:PayPalAPI}SetExpressCheckoutResponseType" __sourcePath="{urn:ebay:api:PayPalAPI=ns0}/ns0:SetExpressCheckoutResponse" _dataStructure="OBJECT" _id="__id" _type="Input" id="ea619e78-4805-4b8e-8ade-4712a868a08f">
+<Record fieldDelimiter="," name="SetExpressCheckoutResponse" recordDelimiter="\n\\|\r\n\\|\r" type="delimited">
+<Field __artificialType="_id" __systemManaged="true" name="__id" type="string"/>
+<Field __dmType="Calendar" __implementationClass="java.util.Calendar" __index="0" __sourcePath="{urn:ebay:apis:eBLBaseComponents=ns1,urn:ebay:api:PayPalAPI=ns0}/ns0:SetExpressCheckoutResponse/ns1:Timestamp" containerType="SINGLE" label="ns0:Timestamp" name="ns0_Timestamp" type="string"/>
+<Field __implementationClass="java.lang.String" __index="1" __sourcePath="{urn:ebay:apis:eBLBaseComponents=ns1,urn:ebay:api:PayPalAPI=ns0}/ns0:SetExpressCheckoutResponse/ns1:Ack" containerType="SINGLE" label="ns0:Ack" name="ns0_Ack" type="string"/>
+<Field __implementationClass="java.lang.String" __index="2" __sourcePath="{urn:ebay:apis:eBLBaseComponents=ns1,urn:ebay:api:PayPalAPI=ns0}/ns0:SetExpressCheckoutResponse/ns1:CorrelationID" containerType="SINGLE" label="ns0:CorrelationID" name="ns0_CorrelationID" type="string"/>
+<Field __implementationClass="java.lang.String" __index="9" __sourcePath="{urn:ebay:apis:eBLBaseComponents=ns1,urn:ebay:api:PayPalAPI=ns0}/ns0:SetExpressCheckoutResponse/ns1:Version" containerType="SINGLE" label="ns0:Version" name="ns0_Version" type="string"/>
+<Field __implementationClass="java.lang.String" __index="10" __sourcePath="{urn:ebay:apis:eBLBaseComponents=ns1,urn:ebay:api:PayPalAPI=ns0}/ns0:SetExpressCheckoutResponse/ns1:Build" containerType="SINGLE" label="ns0:Build" name="ns0_Build" type="string"/>
+<Field __implementationClass="java.lang.String" __index="11" __sourcePath="{urn:ebay:api:PayPalAPI=ns0}/ns0:SetExpressCheckoutResponse/ns0:Token" containerType="SINGLE" label="ns1:Token" name="ns1_Token" type="string"/>
+</Record>
+</Metadata>
+<Metadata __index="0" __referenceCounter="1" __sourcePath="{}/SetExpressCheckoutResponse" _dataStructure="OBJECT" _id="__id" _type="Output" id="6e580d33-36ab-4f96-8785-c8ebb10e5275">
+<Record fieldDelimiter="," name="SetExpressCheckoutResponse" recordDelimiter="\n\\|\r\n\\|\r" type="delimited">
+<Field __artificialType="_id" __systemManaged="true" name="__id" type="string"/>
+<Field __index="1" __sourcePath="{}/SetExpressCheckoutResponse/Ack" containerType="SINGLE" label="Ack" name="Ack" type="string"/>
+<Field __index="4" __sourcePath="{}/SetExpressCheckoutResponse/Build" containerType="SINGLE" label="Build" name="Build" type="string"/>
+<Field __index="2" __sourcePath="{}/SetExpressCheckoutResponse/CorrelationID" containerType="SINGLE" label="CorrelationID" name="CorrelationID" type="string"/>
+<Field __dmType="Calendar" __index="0" __sourcePath="{}/SetExpressCheckoutResponse/Timestamp" containerType="SINGLE" label="Timestamp" name="Timestamp" type="string"/>
+<Field __index="5" __sourcePath="{}/SetExpressCheckoutResponse/Token" containerType="SINGLE" label="Token" name="Token" type="string"/>
+<Field __index="3" __sourcePath="{}/SetExpressCheckoutResponse/Version" containerType="SINGLE" label="Version" name="Version" type="string"/>
+</Record>
+</Metadata>
+<Dictionary>
+<Entry id="DictionaryEntry0" input="true" name="inputPayload" output="false" type="object"/>
+<Entry id="DictionaryEntry1" input="false" name="outputPayload" output="true" type="object"/>
+</Dictionary>
+</Global>
+<Phase number="0">
+<Node enabled="enabled" guiName="Foreach 'ns0:SetExpressCheckoutResponse' -&gt; 'SetExpressCheckoutResponse'" guiX="460" guiY="20" id="FOREACH_NS0_SET_EXPRESS_CHECKOUT_RESPONSE_SET_EXPRESS_CHECKOUT_RESPONSE" transformClass="com.mulesoft.datamapper.transform.MelRecordTransform" type="REFORMAT">
+<attr name="melScript"><![CDATA[//MEL
+//START -> DO NOT REMOVE
+output.__id = input.__id;
+//END -> DO NOT REMOVE
+output.Ack = input.ns0_Ack;
+output.Version = input.ns0_Version;
+output.Token = input.ns1_Token;
+output.Timestamp = input.ns0_Timestamp;
+output.CorrelationID = input.ns0_CorrelationID;
+output.Build = input.ns0_Ack;]]></attr>
+</Node>
+<Node enabled="enabled" guiName="Foreach 'ns1:Errors' -&gt; 'Errors'" guiX="460" guiY="120" id="FOREACH_NS1_ERRORS_ERRORS" transformClass="com.mulesoft.datamapper.transform.MelRecordTransform" type="REFORMAT">
+<attr name="melScript"><![CDATA[//MEL
+//START -> DO NOT REMOVE
+output.__id = input.__id;
+output.__parent_id = input.__parent_id;
+//END -> DO NOT REMOVE
+]]></attr>
+</Node>
+<Node enabled="enabled" guiName="Foreach 'ns1:Errors' -&gt; 'Errors'" guiX="460" guiY="320" id="FOREACH_NS1_ERRORS_ERRORS1" transformClass="com.mulesoft.datamapper.transform.MelRecordTransform" type="REFORMAT">
+<attr name="melScript"><![CDATA[//MEL
+//START -> DO NOT REMOVE
+output.__id = input.__id;
+output.__parent_id = input.__parent_id;
+//END -> DO NOT REMOVE
+]]></attr>
+</Node>
+<Node enabled="enabled" guiName="Foreach 'ns1:ErrorParameters' -&gt; 'ErrorParameters'" guiX="460" guiY="220" id="FOREACH_NS1_ERROR_PARAMETERS_ERROR_PARAMETERS" transformClass="com.mulesoft.datamapper.transform.MelRecordTransform" type="REFORMAT">
+<attr name="melScript"><![CDATA[//MEL
+//START -> DO NOT REMOVE
+output.__id = input.__id;
+output.__parent_id = input.__parent_id;
+//END -> DO NOT REMOVE
+output.ParamID = input.ParamID;
+]]></attr>
+</Node>
+<Node cacheInMemory="true" enabled="enabled" fileURL="dict:outputPayload" guiName="Map&lt;k,v&gt; WRITER" guiX="900" guiY="20" id="MAP_WRITER0" type="MAP_WRITER">
+<attr name="mapping"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<SetExpressCheckoutResponse xmlns:clover="http://www.cloveretl.com/ns/xmlmapping" clover:inPort="0">
+  <Timestamp clover:dataType="java.util.Calendar">$0.Timestamp</Timestamp>
+  <Ack>$0.Ack</Ack>
+  <CorrelationID>$0.CorrelationID</CorrelationID>
+  <Version>$0.Version</Version>
+  <Build>$0.Build</Build>
+  <Token>$0.Token</Token>
+  <clover:collection clover:name="Errors">
+    <item clover:inPort="1" clover:key="__parent_id" clover:parentKey="__id">
+      <ShortMessage>$1.ShortMessage</ShortMessage>
+      <LongMessage>$1.LongMessage</LongMessage>
+      <ErrorCode>$1.ErrorCode</ErrorCode>
+      <SeverityCode>$1.SeverityCode</SeverityCode>
+      <clover:collection clover:name="ErrorParameters">
+        <item clover:inPort="2" clover:key="__parent_id" clover:parentKey="__id">
+          <Value>$2.Value</Value>
+          <ParamID>$2.ParamID</ParamID>
+        </item>
+      </clover:collection>
+    </item>
+    <item clover:inPort="3" clover:key="__parent_id" clover:parentKey="__id">
+      <ShortMessage>$3.ShortMessage</ShortMessage>
+      <LongMessage>$3.LongMessage</LongMessage>
+      <ErrorCode>$3.ErrorCode</ErrorCode>
+      <SeverityCode>$3.SeverityCode</SeverityCode>
+      <clover:collection clover:name="ErrorParameters">
+        <item clover:inPort="2" clover:key="__parent_id" clover:parentKey="__id">
+          <Value>$2.Value</Value>
+          <ParamID>$2.ParamID</ParamID>
+        </item>
+      </clover:collection>
+    </item>
+  </clover:collection>
+</SetExpressCheckoutResponse>]]></attr>
+<attr name="_data_format"><![CDATA[MAP]]></attr>
+</Node>
+<Node enabled="enabled" guiName="Duplicate Errors" guiX="240" guiY="20" id="SIMPLE_COPY0" type="SIMPLE_COPY"/>
+<Node charset="UTF-8" enabled="enabled" fileURL="dict:inputPayload" guiName="XML READER" guiX="20" guiY="20" id="XML_READER0" type="XML_READER">
+<attr name="mapping"><![CDATA[<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Context namespacePaths="ns0=&quot;urn:ebay:api:PayPalAPI&quot;" outPort="0" sequenceField="__id" xpath="/ns0:SetExpressCheckoutResponse">
+  <Mapping cloverField="ns0_Timestamp" namespacePaths="ns1=&quot;urn:ebay:apis:eBLBaseComponents&quot;" trim="true" xpath="ns1:Timestamp"/>
+  <Mapping cloverField="ns0_Ack" namespacePaths="ns1=&quot;urn:ebay:apis:eBLBaseComponents&quot;" trim="true" xpath="ns1:Ack"/>
+  <Mapping cloverField="ns0_CorrelationID" namespacePaths="ns1=&quot;urn:ebay:apis:eBLBaseComponents&quot;" trim="true" xpath="ns1:CorrelationID"/>
+  <Mapping cloverField="ns0_Version" namespacePaths="ns1=&quot;urn:ebay:apis:eBLBaseComponents&quot;" trim="true" xpath="ns1:Version"/>
+  <Mapping cloverField="ns0_Build" namespacePaths="ns1=&quot;urn:ebay:apis:eBLBaseComponents&quot;" trim="true" xpath="ns1:Build"/>
+  <Mapping cloverField="ns1_Token" namespacePaths="ns0=&quot;urn:ebay:api:PayPalAPI&quot;" trim="true" xpath="ns0:Token"/>
+  <Context generatedKey="__parent_id" namespacePaths="ns1=&quot;urn:ebay:apis:eBLBaseComponents&quot;" outPort="2" parentKey="__id" sequenceField="__id" xpath="ns1:Errors">
+    <Mapping cloverField="ns0_ShortMessage" namespacePaths="ns1=&quot;urn:ebay:apis:eBLBaseComponents&quot;" trim="true" xpath="ns1:ShortMessage"/>
+    <Mapping cloverField="ns0_LongMessage" namespacePaths="ns1=&quot;urn:ebay:apis:eBLBaseComponents&quot;" trim="true" xpath="ns1:LongMessage"/>
+    <Mapping cloverField="ns0_ErrorCode" namespacePaths="ns1=&quot;urn:ebay:apis:eBLBaseComponents&quot;" trim="true" xpath="ns1:ErrorCode"/>
+    <Mapping cloverField="ns0_SeverityCode" namespacePaths="ns1=&quot;urn:ebay:apis:eBLBaseComponents&quot;" trim="true" xpath="ns1:SeverityCode"/>
+    <Context generatedKey="__parent_id" namespacePaths="ns1=&quot;urn:ebay:apis:eBLBaseComponents&quot;" outPort="1" parentKey="__id" sequenceField="__id" xpath="ns1:ErrorParameters">
+      <Mapping cloverField="ns0_Value" namespacePaths="ns1=&quot;urn:ebay:apis:eBLBaseComponents&quot;" trim="true" xpath="ns1:Value"/>
+      <Mapping cloverField="ParamID" trim="true" xpath="@ParamID"/>
+    </Context>
+  </Context>
+</Context>
+]]></attr>
+<attr name="_data_format"><![CDATA[XML]]></attr>
+<attr name="__metadata"><![CDATA[true]]></attr>
+</Node>
+<Edge debugMode="true" fromNode="FOREACH_NS0_SET_EXPRESS_CHECKOUT_RESPONSE_SET_EXPRESS_CHECKOUT_RESPONSE:0" guiBendpoints="" id="Edge1" inPort="Port 0 (in)" metadata="6e580d33-36ab-4f96-8785-c8ebb10e5275" outPort="Port 0 (out)" toNode="MAP_WRITER0:0"/>
+<Edge debugMode="true" fromNode="FOREACH_NS1_ERRORS_ERRORS:0" guiBendpoints="" id="Edge3" inPort="Port 1 (in)" metadata="d36bb198-01e4-4879-8d4d-d013a7da49ef" outPort="Port 0 (out)" toNode="MAP_WRITER0:1"/>
+<Edge debugMode="true" fromNode="FOREACH_NS1_ERRORS_ERRORS1:0" guiBendpoints="" id="Edge8" inPort="Port 3 (in)" metadata="d36bb198-01e4-4879-8d4d-d013a7da49ef" outPort="Port 0 (out)" toNode="MAP_WRITER0:3"/>
+<Edge debugMode="true" fromNode="FOREACH_NS1_ERROR_PARAMETERS_ERROR_PARAMETERS:0" guiBendpoints="" id="Edge5" inPort="Port 2 (in)" metadata="fbbe4c28-1995-4991-af3b-1b0ff763effe" outPort="Port 0 (out)" toNode="MAP_WRITER0:2"/>
+<Edge debugMode="true" fromNode="SIMPLE_COPY0:0" guiBendpoints="" id="Edge2" inPort="Port 0 (in)" metadata="7e510edb-b348-445e-8429-24c4c9a82156" outPort="Port 0 (out)" toNode="FOREACH_NS1_ERRORS_ERRORS:0"/>
+<Edge debugMode="true" fromNode="SIMPLE_COPY0:1" guiBendpoints="" id="Edge7" inPort="Port 0 (in)" metadata="7e510edb-b348-445e-8429-24c4c9a82156" outPort="Port 1 (out)" toNode="FOREACH_NS1_ERRORS_ERRORS1:0"/>
+<Edge debugMode="true" fromNode="XML_READER0:0" guiBendpoints="" id="Edge0" inPort="Port 0 (in)" metadata="ea619e78-4805-4b8e-8ade-4712a868a08f" outPort="Port 0 (out)" toNode="FOREACH_NS0_SET_EXPRESS_CHECKOUT_RESPONSE_SET_EXPRESS_CHECKOUT_RESPONSE:0"/>
+<Edge debugMode="true" fromNode="XML_READER0:1" guiBendpoints="" id="Edge4" inPort="Port 0 (in)" metadata="c3ca7de2-3ad0-41c2-aaf5-835c8902d8ba" outPort="Port 1 (out)" toNode="FOREACH_NS1_ERROR_PARAMETERS_ERROR_PARAMETERS:0"/>
+<Edge debugMode="true" fromNode="XML_READER0:2" guiBendpoints="" id="Edge6" inPort="Port 0 (in)" metadata="7e510edb-b348-445e-8429-24c4c9a82156" outPort="Port 2 (out)" toNode="SIMPLE_COPY0:0"/>
+</Phase>
+</Graph>

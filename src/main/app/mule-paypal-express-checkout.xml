@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mule xmlns:pattern="http://www.mulesoft.org/schema/mule/pattern"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:metadata="http://www.mulesoft.org/schema/mule/metadata"
+	xmlns:json="http://www.mulesoft.org/schema/mule/json" xmlns:ws="http://www.mulesoft.org/schema/mule/ws"
+	xmlns:dw="http://www.mulesoft.org/schema/mule/ee/dw" xmlns:data-mapper="http://www.mulesoft.org/schema/mule/ee/data-mapper"
+	xmlns:paypal="http://www.mulesoft.org/schema/mule/paypal" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:tracking="http://www.mulesoft.org/schema/mule/ee/tracking"
+	xmlns:mulexml="http://www.mulesoft.org/schema/mule/xml" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:apikit="http://www.mulesoft.org/schema/mule/apikit" xmlns:https="http://www.mulesoft.org/schema/mule/https"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:spring="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.mulesoft.org/schema/mule/pattern http://www.mulesoft.org/schema/mule/pattern/current/mule-pattern.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/apikit http://www.mulesoft.org/schema/mule/apikit/current/mule-apikit.xsd
+http://www.mulesoft.org/schema/mule/https http://www.mulesoft.org/schema/mule/https/current/mule-https.xsd
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/mule/ee/tracking/current/mule-tracking-ee.xsd
+http://www.mulesoft.org/schema/mule/paypal http://www.mulesoft.org/schema/mule/paypal/current/mule-paypal.xsd
+http://www.mulesoft.org/schema/mule/ee/dw http://www.mulesoft.org/schema/mule/ee/dw/current/dw.xsd
+http://www.mulesoft.org/schema/mule/xml http://www.mulesoft.org/schema/mule/xml/current/mule-xml.xsd
+http://www.mulesoft.org/schema/mule/ee/data-mapper http://www.mulesoft.org/schema/mule/ee/data-mapper/current/mule-data-mapper.xsd
+http://www.mulesoft.org/schema/mule/ws http://www.mulesoft.org/schema/mule/ws/current/mule-ws.xsd
+http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd
+http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-current.xsd"
+	version="EE-3.7.0">
+
+	<paypal:config name="PayPal_Connector__configuration__Signature_"
+		username="${paypal.api.user}" password="${paypal.api.pass}"
+		serviceAddress="${paypal.service.address}" signature="${paypal.signature}"
+		appId="${paypal.app.id}" doc:name="PayPal Connector: configuration (Signature)" />
+
+	<data-mapper:config name="Xml_SetExpressCheckoutResponse__To_Map"
+		transformationGraphPath="xml_setexpresscheckoutresponse__to_map.grf"
+		doc:name="Xml_SetExpressCheckoutResponse__To_Map" />
+
+	<data-mapper:config name="Map_To_Xml_SetExpressCheckoutReq_"
+		transformationGraphPath="map_to_xml_setexpresscheckoutreq_.grf"
+		doc:name="Map_To_Xml_SetExpressCheckoutReq_" />
+
+	<ws:consumer-config name="Web_Service_Consumer"
+		wsdlLocation="https://www.paypalobjects.com/wsdl/PayPalSvc.wsdl"
+		service="PayPalAPIInterfaceService" port="PayPalAPIAA"
+		serviceAddress="https://api-aa.sandbox.paypal.com/2.0/" doc:name="Web Service Consumer" />
+
+	<http:request-config name="HTTP_Request_Configuration"
+		followRedirects="false" protocol="HTTPS" host="www.sandbox.paypal.com"
+		port="443" doc:name="HTTP Request Configuration">
+	</http:request-config>
+
+	<http:request-config name="HTTP_Request_Configuration2"
+		host="localhost" port="8082" doc:name="HTTP Request Configuration">
+	</http:request-config>
+
+	<data-mapper:config name="Map_To_Xml_GetExpressCheckoutDetailsReq_"
+		transformationGraphPath="map_to_xml_getexpresscheckoutdetailsreq_.grf"
+		doc:name="Map_To_Xml_GetExpressCheckoutDetailsReq_" />
+
+	<data-mapper:config
+		name="Xml_GetExpressCheckoutDetailsResponse__To_Xml_DoExpressCheckoutPaymentReq_"
+		transformationGraphPath="xml_getexpresscheckoutdetailsresponse__to_xml_doexpresscheckoutpaymentreq_.grf"
+		doc:name="Xml_GetExpressCheckoutDetailsResponse__To_Xml_DoExpressCheckoutPaymentReq_" />
+
+	<context:property-placeholder location="classpath:connection.properties" />
+
+	<http:listener-config name="HTTP_Listener_Configuration"
+		host="0.0.0.0" port="8081" doc:name="HTTP Listener Configuration" />
+
+	<pattern:http-proxy name="http-proxy-sample"
+		transformer-refs="str2map" inboundAddress="http://localhost:8082/redirect"
+		outboundAddress="https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_express-checkout&amp;token=#[message.payload.Token]" />
+	<expression-transformer expression="#[new java.util.HashMap()]"
+		name="str2map" doc:name="Expression" />
+
+	<flow name="start-ec">
+		<http:listener config-ref="HTTP_Listener_Configuration"
+			path="/start-express-checkout" allowedMethods="GET" doc:name="HTTP">
+		</http:listener>
+		<!-- <http:inbound-endpoint -->
+		<!-- address="http://${mule.host}:${mule.port}/${start.excpress.checkout.path}" -->
+		<!-- doc:name="HTTP" /> -->
+
+		<data-mapper:transform doc:name="Map To Xml&lt;SetExpressCheckoutReq&gt;"
+			config-ref="Map_To_Xml_SetExpressCheckoutReq_"
+			input-ref="#[message.inboundProperties[&quot;http.query.params&quot;]]" />
+		<mulexml:dom-to-xml-transformer
+			doc:name="DOM to XML" />
+		<paypal:invoke config-ref="PayPal_Connector__configuration__Signature_"
+			type="PayPalAPIAA||SetExpressCheckout" doc:name="PayPal Connector" />
+		<data-mapper:transform config-ref="Xml_SetExpressCheckoutResponse__To_Map"
+			doc:name="Xml&lt;SetExpressCheckoutResponse&gt; To Map" />
+		<logger message="#[message.payload.Token]" level="INFO"
+			doc:name="Logger" />
+		<!-- <http:request config-ref="HTTP_Request_Configuration" -->
+		<!-- followRedirects="true" -->
+		<!-- path="cgi-bin/webscr?cmd=_express-checkout&amp;token=#[message.payload.Token]" -->
+		<!-- method="GET" doc:name="HTTP"> -->
+		<!-- <http:request-builder /> -->
+		<!-- </http:request> -->
+
+		<http:request config-ref="HTTP_Request_Configuration2"
+			path="/redirect" method="GET" doc:name="HTTP">
+		</http:request>
+		<!-- <object-to-byte-array-transformer doc:name="Object to Byte Array"/> -->
+
+		<!-- <set-property propertyName="http.status" value="302" -->
+		<!-- doc:name="Property" /> -->
+
+		<!-- <http:response-builder status="302" contentType="text/html" -->
+		<!-- doc:name="HTTP Response Builder"> -->
+		<!-- <http:location -->
+		<!-- value="https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_express-checkout&amp;token=#[message.payload.Token]" 
+			/> -->
+		<!-- </http:response-builder> -->
+		<logger level="INFO" doc:name="Logger" />
+		<!-- <object-to-string-transformer doc:name="Object to String"/> -->
+	</flow>
+	<flow name="paypal-reply">
+
+		<http:inbound-endpoint
+			address="http://${mule.host}:${mule.port}/${reply.path}" doc:name="HTTP" />
+		<logger message="#[message.inboundProperties.'http.query.params'.PayerID]"
+			level="ERROR" doc:name="print payer id" />
+		<logger level="INFO" doc:name="print token"
+			message="#[message.inboundProperties.'http.query.params'.token]" />
+		<component class="org.addisonlee.component.PrepareDoExpressCheckoutPayment"
+			doc:name="create map with paypal token and payer id for data mapper input" />
+		<data-mapper:transform config-ref="Map_To_Xml_GetExpressCheckoutDetailsReq_"
+			doc:name="Map To Xml&lt;GetExpressCheckoutDetailsReq&gt;" />
+		<paypal:invoke config-ref="PayPal_Connector__configuration__Signature_"
+			type="PayPalAPIAA||GetExpressCheckoutDetails" doc:name="PayPal Connector" />
+		<data-mapper:transform
+			config-ref="Xml_GetExpressCheckoutDetailsResponse__To_Xml_DoExpressCheckoutPaymentReq_"
+			doc:name="Xml&lt;GetExpressCheckoutDetailsResponse&gt; To Xml&lt;DoExpressCheckoutPaymentReq&gt;" />
+		<paypal:invoke config-ref="PayPal_Connector__configuration__Signature_"
+			type="PayPalAPIAA||DoExpressCheckoutPayment" doc:name="PayPal Connector" />
+		<mulexml:dom-to-xml-transformer
+			doc:name="DOM to XML" />
+		<logger message="express checkout done #[payload]" level="INFO"
+			doc:name="Logger" />
+	</flow>
+	<flow name="paypal-cancel">
+
+		<http:inbound-endpoint
+			address="http://${mule.host}:${mule.port}/${cancel.path}" doc:name="HTTP" />
+		<logger message="#[payload] - paypall reply received" level="INFO"
+			doc:name="print payload" />
+		<logger level="INFO" doc:name="print message details" />
+	</flow>
+</mule>
